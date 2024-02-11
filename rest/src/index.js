@@ -1,40 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Header from './components/Header'; // Import the Header component correctly
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home'; // Import the Home component correctly
 
 // Define your Material-UI theme
 const theme = createTheme({
   // Your theme configuration
 });
 
-ReactDOM.render(
+// Use createRoot instead of ReactDOM.render
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Router>
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          {/* Add more routes here if needed */}
         </Routes>
+        <App />
+        <Footer />
       </Router>
-      <App />
     </ThemeProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
-
-function Home() {
-  return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-    </div>
-  );
-}
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
