@@ -11,7 +11,7 @@ import Home from './components/Home'; // Import the Home component correctly
 
 // Define your Material-UI theme
 const theme = createTheme({
-  // Your theme configuration
+  
 });
 
 // Use createRoot instead of ReactDOM.render
